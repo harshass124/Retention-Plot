@@ -19,19 +19,30 @@ Understanding user retention is crucial for businesses to:
 
 - The orders table is created to store order data including order ID, user ID, total amount, and the order date.
 - The data is loaded from a CSV file.
+
+![Screenshot 2024-10-29 125023](https://github.com/user-attachments/assets/6561fa68-4f46-4fcb-8cd1-8ad1752f0cdd)
+
 ### Grouping Orders:
 
 - A temporary table (grouped) is created to store user IDs and the corresponding dates when orders were made, ensuring each combination is unique.
+![Screenshot 2024-10-29 125112](https://github.com/user-attachments/assets/687a422a-8f8a-4b88-90f8-3b3fc3472626)
+
 ### Calculating the First Order Week:
 
 - Another temporary table (week) is created to store the user orders along with the week start date.
 - The minimum week start date for each user is calculated and stored in the minweek table to determine when each user made their first purchase.
+![Screenshot 2024-10-29 125155](https://github.com/user-attachments/assets/11663140-a7c0-456b-a8f6-5963c9e48d3b)
+
 ### Calculating Week Differences:
 
 - The script joins the grouped and minweek tables to calculate the difference in weeks from each order to the user's first order, stored in a new table (final).
+![Screenshot 2024-10-29 125224](https://github.com/user-attachments/assets/b0c885d5-1012-4829-8490-2d54f74e0a1c)
+
 ### Weekly User Retention Analysis:
 
 - Finally, the script performs a grouped count to calculate the number of distinct users for each week difference and outputs the results, showing retention over a 10-week period.
+
+![Screenshot 2024-10-29 125329](https://github.com/user-attachments/assets/5514898a-1983-48a0-86a7-fb702ffe2a4f)
 ## Technical Skills
 - SQL Basics: Knowledge of SQL for creating tables, importing data, and performing CRUD operations.
 - Data Aggregation: Using GROUP BY, ORDER BY, and JOIN to summarize and analyze data.
